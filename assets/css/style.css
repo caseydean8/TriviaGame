@@ -1,0 +1,31 @@
+.container {
+    display:grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* line above creates 3 equal size fractionals */
+    /* grid-template-columns: repeat(4, 1fr 2fr); */
+    /* line above creates succession 1fr, 2fr, 1fr, 2fr ...*/
+    /* grid-template-columns: 20% 60% 20%; 
+    previous code works, but fractionals (fr) cause less issues with padding and responsiveness */
+    /* grid-column-gap: 1em;
+    grid-row-gap: 1em; */
+    /* following code does the same as commented out code above */
+    grid-gap: .5em;
+    /* grid-auto-rows: 150px; */
+    grid-auto-rows: minmax(100px, auto);
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.container > div  {
+    background: #eee;
+    padding: 1em;
+}
+
+.container > div:nth-child(odd) { 
+    background:yellowgreen;
+}
+
+.button {
+    display: grid;
+}
