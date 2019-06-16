@@ -2,14 +2,34 @@
 var correctAnswer = 0;
 var incorrectAnswer = 0;
 var unanswered = 0;
+var countdownNumber = 15;
+var intervalId
 
 var questions = "Which movie won the special achievement award at the 60th Academy Awards?"
 
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
-    // start 15s timer.
     document.getElementById("question").innerHTML = questions;
     console.log(questions);
+    // start 15s timer.
+    run();
+    function run() {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+      }
+    function decrement() {
+        //  Decrease number by one.
+        countdownNumber--;
+        //  Show the number in the #show-number tag.
+        document.getElementById("timer").innerHTML = countdownNumber;
+        //  Once number hits zero...
+        if (countdownNumber === 0) {
+        //  ...run the stop function.
+        clearInterval(intervalId);
+        }
+      }
+  
+
 }
 
 
