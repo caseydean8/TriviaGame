@@ -5,11 +5,13 @@ var unanswered = 0;
 var countdownNumber = 15;
 var intervalId
 
-var questions = "Which movie won the special achievement award at the 60th Academy Awards?"
+var gameQuestions = {
+    page1: ["Which movie won the special achievement award at the 60th Academy Awards?", "Lethal Weapon", "Full Metal Jacket", "Robocop", "Predator"]
+}
 
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
-    document.getElementById("question").innerHTML = questions;
+    document.getElementById("question").innerHTML = gameQuestions.page1[0];
     console.log(questions);
     // start 15s timer.
     run();
