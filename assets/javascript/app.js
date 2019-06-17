@@ -6,16 +6,16 @@ var countdownNumber = 16;
 var intervalId
 
 var gameQuestions = {
-    page1: ["Which movie won the special achievement award at the 60th Academy Awards?", "Lethal Weapon", "Full Metal Jacket", "Robocop", "Predator"]
+    page1: ["Which movie won the special achievement award at the 60th Academy Awards?", ["Lethal Weapon", false], ["Full Metal Jacket", false], ["Robocop", true], ["Predator", false]]
 }
 
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
     document.getElementById("question").innerHTML = gameQuestions.page1[0];
-    document.getElementById("button1").innerHTML = gameQuestions.page1[1];
-    document.getElementById("button2").innerHTML = gameQuestions.page1[2];
-    document.getElementById("button3").innerHTML = gameQuestions.page1[3];
-    document.getElementById("button4").innerHTML = gameQuestions.page1[4];
+    document.getElementById("button1").innerHTML = gameQuestions.page1[1][0];
+    document.getElementById("button2").innerHTML = gameQuestions.page1[2][0];
+    document.getElementById("button3").innerHTML = gameQuestions.page1[3][0];
+    document.getElementById("button4").innerHTML = gameQuestions.page1[4][0];
     // start 15s timer.
     run();
     function run() {
@@ -33,7 +33,8 @@ function startGame() {
         clearInterval(intervalId);
         }
       }
-  
+      // Create a listener for button click
+
 
 }
 
