@@ -12,7 +12,10 @@ var gameQuestions = {
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
     document.getElementById("question").innerHTML = gameQuestions.page1[0];
-    console.log(questions);
+    document.getElementById("button1").innerHTML = gameQuestions.page1[1];
+    document.getElementById("button2").innerHTML = gameQuestions.page1[2];
+    document.getElementById("button3").innerHTML = gameQuestions.page1[3];
+    document.getElementById("button4").innerHTML = gameQuestions.page1[4];
     // start 15s timer.
     run();
     function run() {
