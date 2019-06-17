@@ -2,7 +2,7 @@
 var correctAnswer = 0;
 var incorrectAnswer = 0;
 var unanswered = 0;
-var countdownNumber = 15;
+var countdownNumber = 16;
 var intervalId
 
 var gameQuestions = {
