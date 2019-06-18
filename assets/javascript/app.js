@@ -9,15 +9,25 @@ var gameQuestions = {
     page1: ["Which movie won the special achievement award at the 60th Academy Awards?", ["Lethal Weapon", false], ["Full Metal Jacket", false], ["Robocop", true], ["Predator", false]]
 }
 
+
+
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
     document.getElementById("question").innerHTML = gameQuestions.page1[0];
-    document.getElementById("button1").innerHTML = gameQuestions.page1[1][0];
-    document.getElementById("button2").innerHTML = gameQuestions.page1[2][0];
-    document.getElementById("button3").innerHTML = gameQuestions.page1[3][0];
-    document.getElementById("button4").innerHTML = gameQuestions.page1[4][0];
+    // Loop through buttons to print movies frome page1.
+    var btn = document.getElementsByClassName("btn");
+    console.log(btn);
+    for(var i = 0; i < btn.length; i++) {
+      btn[i].innerHTML = gameQuestions.page1[i + 1][0];
+      console.log(btn);
+    }
+    // document.getElementById("button1").innerHTML = gameQuestions.page1[1][0];
+    // document.getElementById("button2").innerHTML = gameQuestions.page1[2][0];
+    // document.getElementById("button3").innerHTML = gameQuestions.page1[3][0];
+    // document.getElementById("button4").innerHTML = gameQuestions.page1[4][0];
     // start 15s timer.
     run();
+
     function run() {
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
@@ -34,7 +44,7 @@ function startGame() {
         }
       }
       // Create a listener for button click
-
+      // document.getElementById()
 
 }
 
@@ -56,4 +66,4 @@ function startGame() {
 // Load next screen with timer ~4s.
 
 
-// After last question, show correct, incorrect, and unanswered(timer expiration) tallies. Also create a start over button that resets the game.
+// After last question, show correct, incorrect, and unanswered(timer expiration) tallies. Also create a start over button that resets the game
