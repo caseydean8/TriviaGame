@@ -18,8 +18,11 @@ function startGame() {
     var btn = document.getElementsByClassName("btn");
     console.log(btn);
     for(var i = 0; i < btn.length; i++) {
+      // document.createElement("button");
       btn[i].innerHTML = gameQuestions.page1[i + 1][0];
-      console.log(btn);
+      btn[i].value = gameQuestions.page1[i + 1][1];
+      console.log(btn[i].value);
+      // console.log(btn.length);
     }
     // document.getElementById("button1").innerHTML = gameQuestions.page1[1][0];
     // document.getElementById("button2").innerHTML = gameQuestions.page1[2][0];
