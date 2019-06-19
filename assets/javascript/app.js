@@ -3,25 +3,25 @@ var correctAnswer = 0;
 var incorrectAnswer = 0;
 var unanswered = 0;
 var countdownNumber = 16;
-var intervalId
+var intervalId;
 
 var gameQuestions = {
     questions: ["Which movie won the special achievement award at the 60th Academy Awards?",],
-    answers: [["Lethal Weapon", false], ["Full Metal Jacket", false], ["Robocop", true], ["Predator", false]]
-}
-
+    answers: [[["Lethal Weapon", false], ["Full Metal Jacket", false], ["Robocop", true], ["Predator", false]]]
+};
+var page = 0;
 
 
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
-    document.getElementById("question").innerHTML = gameQuestions.questions[0];
+    document.getElementById("question").innerHTML = gameQuestions.questions[page];
     // Loop through buttons to print movies frome page1.
     var btn = document.getElementsByClassName("btn");
     console.log(btn);
     for(var i = 0; i < btn.length; i++) {
       // document.createElement("button");
-      btn[i].innerHTML = gameQuestions.answers[i][0];
-      btn[i].value = gameQuestions.answers[i][1];
+      btn[i].innerHTML = gameQuestions.answers[page][i][0];
+      btn[i].value = gameQuestions.answers[page][i][1];
       console.log(btn[i].value);
       // console.log(btn.length);
     }
