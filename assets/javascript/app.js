@@ -7,10 +7,11 @@ var intervalId;
 
 var gameQuestions = {
     questions: ["Which movie won the special achievement award at the 60th Academy Awards?", "Which supernatural thrillers protagonist was named Jack Burton?",],
-    answers: [[["Lethal Weapon", false], ["Full Metal Jacket", false], ["Robocop", true], ["Predator", false]], [["The Golden Child", false], ["Big Trouble in Little China", true], ["Howard the Duck", false], ["Innerspace", false]]]
+    answers: [[["Lethal Weapon", 0], ["Full Metal Jacket", 0], ["Robocop", 1], ["Predator", 0]], [["The Golden Child", 0], ["Big Trouble in Little China", 1], ["Howard the Duck", 0], ["Innerspace", 0]]]
 };
 var page = 0;
 
+// var btn = document.getElementsByClassName("btn");
 
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
@@ -22,13 +23,8 @@ function startGame() {
       // document.createElement("button");
       btn[i].innerHTML = gameQuestions.answers[page][i][0];
       btn[i].value = gameQuestions.answers[page][i][1];
-      console.log(btn[i].value);
-      // console.log(btn.length);
     }
-    // document.getElementById("button1").innerHTML = gameQuestions.page1[1][0];
-    // document.getElementById("button2").innerHTML = gameQuestions.page1[2][0];
-    // document.getElementById("button3").innerHTML = gameQuestions.page1[3][0];
-    // document.getElementById("button4").innerHTML = gameQuestions.page1[4][0];
+    
     // start 15s timer.
     run();
 
@@ -47,10 +43,31 @@ function startGame() {
         clearInterval(intervalId);
         }
       }
-      // Create a listener for button click
-      // document.getElementById()
+  }
 
-}
+  // Create a listener for button click
+      
+  // function correct() {
+    // var singleton = false
+    $(".btn").click(function() {
+      
+      var fired_button = $(this).val();
+      // alert(fired_button);
+      console.log(fired_button);
+      if (fired_button == 1){
+        // singleton = true;
+        // if (singleton){
+          document.getElementById("answer-output").innerHTML = "Correct! the answer is " + $(this).text();
+        // }
+      }
+      else {
+      document.getElementById("answer-output").innerHTML = "Incorrect! the answer is " + $("value").text("1");
+    }
+  });
+  
+  
+
+
 
 
 
@@ -70,4 +87,4 @@ function startGame() {
 // Load next screen with timer ~4s.
 
 
-// After last question, show correct, incorrect, and unanswered(timer expiration) tallies. Also create a start over button that resets the game
+// After last question, show correct, incorrect, and unanswered(timer expiration) tallies. Also create a start over button that resets the game//
