@@ -6,8 +6,8 @@ var countdownNumber = 16;
 var intervalId;
 
 var gameQuestions = {
-    questions: ["Which movie won the special achievement award at the 60th Academy Awards?",],
-    answers: [[["Lethal Weapon", false], ["Full Metal Jacket", false], ["Robocop", true], ["Predator", false]]]
+    questions: ["Which movie won the special achievement award at the 60th Academy Awards?", "Which supernatural thrillers protagonist was named Jack Burton?",],
+    answers: [[["Lethal Weapon", false], ["Full Metal Jacket", false], ["Robocop", true], ["Predator", false]], [["The Golden Child", false], ["Big Trouble in Little China", true], ["Howard the Duck", false], ["Innerspace", false]]]
 };
 var page = 0;
 
