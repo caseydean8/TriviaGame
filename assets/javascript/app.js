@@ -22,7 +22,9 @@ function startGame() {
     // console.log(btn);
     for(var i = 0; i < btn.length; i++) {
       // document.createElement("button");
-      btn[i].innerHTML = gameQuestions.answers[page][i][0];
+        clearInterval(intervalId);
+        btn[i].innerHTML = gameQuestions.answers[page][i][0];
+      console.log(gameQuestions.answers[page][i][0]);
       btn[i].value = gameQuestions.answers[page][i][1];
       if (btn[i].value == 1){
         rightAnswer = gameQuestions.answers[page][i][0];
@@ -37,6 +39,7 @@ function startGame() {
         intervalId = setInterval(decrement, 1000);
       }
     function decrement() {
+        // var countdownNumber = 16;
         //  Decrease number by one.
         countdownNumber--;
         //  Show the number in the #show-number tag.
@@ -46,8 +49,9 @@ function startGame() {
         //  ...run the stop function.
         clearInterval(intervalId);
         unanswered++;
-        console.log(unanswered);
+        console.log("unanswered timeout" + unanswered);
         document.getElementById("answer-output").innerHTML = "The answer is " + rightAnswer;
+        // reset();
 
         }
       }
@@ -61,13 +65,22 @@ function startGame() {
       if (fired_button == 1){
           document.getElementById("answer-output").innerHTML = "Correct! the answer is " + $(this).text();
           correctAnswers++;
-          console.log("right " + correctAnswers);
+          // console.log("right " + correctAnswers);
+          reset();
       }
       else {
         document.getElementById("answer-output").innerHTML = "Incorrect! the answer is " + rightAnswer;incorrectAnswers++;
-        console.log("wrong " + incorrectAnswers);
+        // console.log("wrong " + incorrectAnswers);
+        reset();
       }
     });
+
+    function reset(){
+      clearInterval(intervalId);
+      page++;
+      console.log("page number " + page);
+      startGame();
+    }
   
   
 
