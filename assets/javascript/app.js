@@ -2,8 +2,8 @@
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0;
-var countdownNumber = 16;
-var intervalId;
+// var countdownNumber = 5;
+// var intervalId;
 
 var gameQuestions = {
     questions: ["Which movie won the special achievement award at the 60th Academy Awards?", "Which supernatural thrillers protagonist was named Jack Burton?",],
@@ -12,7 +12,6 @@ var gameQuestions = {
 var page = 0;
 var rightAnswer
 
-// var btn = document.getElementsByClassName("btn");
 
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
@@ -21,41 +20,38 @@ function startGame() {
     var btn = document.getElementsByClassName("btn");
     // console.log(btn);
     for(var i = 0; i < btn.length; i++) {
-      // document.createElement("button");
-        clearInterval(intervalId);
-        btn[i].innerHTML = gameQuestions.answers[page][i][0];
-      console.log(gameQuestions.answers[page][i][0]);
+      btn[i].innerHTML = gameQuestions.answers[page][i][0];
       btn[i].value = gameQuestions.answers[page][i][1];
       if (btn[i].value == 1){
         rightAnswer = gameQuestions.answers[page][i][0];
       }
     }
-    
     // start 15s timer.
     run();
+  }   
+var intervalId;
+function run() {
+  clearInterval(intervalId);
+  intervalId = setInterval(decrement, 1000);
+  var countdownNumber = 16;
 
-    function run() {
-        clearInterval(intervalId);
-        intervalId = setInterval(decrement, 1000);
-      }
-    function decrement() {
-        // var countdownNumber = 16;
+  function decrement() {
         //  Decrease number by one.
-        countdownNumber--;
+    countdownNumber--;
         //  Show the number in the #show-number tag.
-        document.getElementById("timer").innerHTML = countdownNumber;
+    document.getElementById("timer").innerHTML = countdownNumber;
         //  Once number hits zero...
-        if (countdownNumber === 0) {
+    if (countdownNumber === 0) {
         //  ...run the stop function.
-        clearInterval(intervalId);
-        unanswered++;
-        console.log("unanswered timeout" + unanswered);
-        document.getElementById("answer-output").innerHTML = "The answer is " + rightAnswer;
-        // reset();
-
-        }
+      clearInterval(intervalId);
+      unanswered++;
+      console.log("unanswered timeout" + unanswered);
+      document.getElementById("answer-output").innerHTML = "The answer is " +rightAnswer;
+      reset();
       }
   }
+}
+  
 
   // Create a listener for button click
     $(".btn").click(function() {
@@ -69,17 +65,19 @@ function startGame() {
           reset();
       }
       else {
-        document.getElementById("answer-output").innerHTML = "Incorrect! the answer is " + rightAnswer;incorrectAnswers++;
+        document.getElementById("answer-output").innerHTML = "Incorrect! the answer is " + rightAnswer;
+        incorrectAnswers++;
         // console.log("wrong " + incorrectAnswers);
         reset();
       }
     });
 
     function reset(){
-      clearInterval(intervalId);
       page++;
       console.log("page number " + page);
-      startGame();
+      setTimeout(startGame, 3000);
+      clearInterval(intervalId);
+      // startGame();
     }
   
   
