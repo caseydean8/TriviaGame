@@ -1,6 +1,6 @@
 // Create global variable for correct answers, incorrect answers, and unanswered.
-var correctAnswer = 0;
-var incorrectAnswer = 0;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
 var unanswered = 0;
 var countdownNumber = 16;
 var intervalId;
@@ -10,6 +10,7 @@ var gameQuestions = {
     answers: [[["Lethal Weapon", 0], ["Full Metal Jacket", 0], ["Robocop", 1], ["Predator", 0]], [["The Golden Child", 0], ["Big Trouble in Little China", 1], ["Howard the Duck", 0], ["Innerspace", 0]]]
 };
 var page = 0;
+var rightAnswer
 
 // var btn = document.getElementsByClassName("btn");
 
@@ -18,11 +19,15 @@ function startGame() {
     document.getElementById("question").innerHTML = gameQuestions.questions[page];
     // Loop through buttons to print movies frome page1.
     var btn = document.getElementsByClassName("btn");
-    console.log(btn);
+    // console.log(btn);
     for(var i = 0; i < btn.length; i++) {
       // document.createElement("button");
       btn[i].innerHTML = gameQuestions.answers[page][i][0];
       btn[i].value = gameQuestions.answers[page][i][1];
+      if (btn[i].value == 1){
+        rightAnswer = gameQuestions.answers[page][i][0];
+        console.log(rightAnswer);
+      }
     }
     
     // start 15s timer.
