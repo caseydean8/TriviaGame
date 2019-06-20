@@ -55,8 +55,9 @@ function run() {
 
   // Create a listener for button click
     $(".btn").click(function() {
-      
+      $(".btn").remove();
       var fired_button = $(this).val();
+
       console.log(fired_button);
       if (fired_button == 1){
           document.getElementById("answer-output").innerHTML = "Correct! the answer is " + $(this).text();
@@ -75,6 +76,8 @@ function run() {
     function reset(){
       page++;
       console.log("page number " + page);
+      clearInterval(intervalId);
+
       setTimeout(startGame, 3000);
       clearInterval(intervalId);
       // startGame();
