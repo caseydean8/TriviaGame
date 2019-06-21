@@ -17,7 +17,7 @@ var rightAnswer
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
 
-  $(".start-button").remove();
+  $("#start-button").remove();
   
   document.getElementById("answer-output").innerHTML = "";
 
@@ -27,7 +27,7 @@ function startGame() {
     for(var i = 0; i < gameQuestions.answers[page].length; i++) {
       var answerButton = document.createElement("button");
       answerButton.classList.add("btn");
-      answerButton.innerHTML=gameQuestions.answers[page][i];
+      answerButton.innerHTML = gameQuestions.answers[page][i];
       $("div.button").append($(answerButton));
     }
     
@@ -91,7 +91,18 @@ function run() {
 
       // clearInterval(intervalId);
       // startGame();
+  }
+
+    function gameReset(){
+      document.getElementById("start-button").innerHTML = "Play Again";
+      var $correctDisplay = ("<div>", {id: "correct-answers"});
+      var $incorrectDisplay = ("<div>", {id: "incorrect-answers"});
+      $correctDisplay.innerHTML = correctAnswers;
+      $incorrectDisplay.innerHTML = incorrectAnswers = unanswered;
+      $(".header").append($correctDisplay, $incorrectDisplay);
+
     }
+    
   
   
 
