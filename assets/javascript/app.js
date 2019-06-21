@@ -16,6 +16,9 @@ var rightAnswer
 
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
+
+  $(".start-button").remove();
+
     document.getElementById("question").innerHTML = gameQuestions.questions[page];
     
     for(var i = 0; i < gameQuestions.answers[page].length; i++) {
@@ -82,7 +85,7 @@ function run() {
       clearInterval(intervalId);
 
       setTimeout(startGame, 3000);
-      clearInterval(intervalId);
+      // clearInterval(intervalId);
       // startGame();
     }
   
