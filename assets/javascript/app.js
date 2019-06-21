@@ -18,6 +18,9 @@ var rightAnswer
 function startGame() {
 
   $(".start-button").remove();
+  
+  document.getElementById("answer-output").innerHTML = "";
+
 
     document.getElementById("question").innerHTML = gameQuestions.questions[page];
     
@@ -51,7 +54,7 @@ function run() {
       console.log("unanswered timeout" + unanswered);
 
       document.getElementById("answer-output").innerHTML = "The answer is " +gameQuestions.rightAnswer[page];
-
+      
       reset();
       }
   }
@@ -81,10 +84,11 @@ function run() {
     function reset(){
       $(".btn").remove();
       page++;
-      console.log("page number " + page);
+      
       clearInterval(intervalId);
 
       setTimeout(startGame, 3000);
+
       // clearInterval(intervalId);
       // startGame();
     }
