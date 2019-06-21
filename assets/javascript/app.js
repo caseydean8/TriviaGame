@@ -7,7 +7,8 @@ var unanswered = 0;
 
 var gameQuestions = {
     questions: ["Which movie won the special achievement award at the 60th Academy Awards?", "Which supernatural thrillers protagonist was named Jack Burton?",],
-    answers: [[["Lethal Weapon", 0], ["Full Metal Jacket", 0], ["Robocop", 1], ["Predator", 0]], [["The Golden Child", 0], ["Big Trouble in Little China", 1], ["Howard the Duck", 0], ["Innerspace", 0]]]
+    answers: [["Lethal Weapon", "Full Metal Jacket", "Robocop", "Predator"], ["The Golden Child", "Big Trouble in Little China", "Howard the Duck", "Innerspace"]],
+    rightAnswer: ["Robocop", "Big Trouble in Little China"]
 };
 var page = 0;
 var rightAnswer
@@ -16,19 +17,15 @@ var rightAnswer
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
     document.getElementById("question").innerHTML = gameQuestions.questions[page];
-    // Loop through buttons to print movies frome page1.
-    var btn = document.getElementsByClassName("btn");
-    // console.log(btn);
-    for(var i = 0; i < btn.length; i++) {
-      btn[i].innerHTML = gameQuestions.answers[page][i][0];
-      btn[i].value = gameQuestions.answers[page][i][1];
-      if (btn[i].value == 1){
-        rightAnswer = gameQuestions.answers[page][i][0];
-      }
-    }
+
+    for(var i = 0; i < gameQuestions.answers[page].length; i++) {
+      var answerButton = document.createElement("button");
+      answerButton.innerHTML=gameQuestions.answers[page][i];
+      $("div.button").append($(answerButton));
     // start 15s timer.
     run();
-  }   
+  }
+}   
 var intervalId;
 function run() {
   clearInterval(intervalId);
@@ -46,7 +43,7 @@ function run() {
       clearInterval(intervalId);
       unanswered++;
       console.log("unanswered timeout" + unanswered);
-      document.getElementById("answer-output").innerHTML = "The answer is " +rightAnswer;
+      document.getElementById("answer-output").innerHTML = "The answer is " +rightAnswer[page];
       reset();
       }
   }
@@ -59,14 +56,14 @@ function run() {
       var fired_button = $(this).val();
 
       console.log(fired_button);
-      if (fired_button == 1){
+      if (fired_button == rightAnswer[page]){
           document.getElementById("answer-output").innerHTML = "Correct! the answer is " + $(this).text();
           correctAnswers++;
           // console.log("right " + correctAnswers);
           reset();
       }
       else {
-        document.getElementById("answer-output").innerHTML = "Incorrect! the answer is " + rightAnswer;
+        document.getElementById("answer-output").innerHTML = "Incorrect! the answer is " + rightAnswer[page];
         incorrectAnswers++;
         // console.log("wrong " + incorrectAnswers);
         reset();
