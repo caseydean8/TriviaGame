@@ -21,6 +21,7 @@ function startGame() {
     for(var i = 0; i < gameQuestions.answers[page].length; i++) {
       var answerButton = document.createElement("button");
       answerButton.innerHTML=gameQuestions.answers[page][i];
+      answerButton.classList.add("btn");
       $("div.button").append($(answerButton));
     // start 15s timer.
     run();
