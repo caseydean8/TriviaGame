@@ -17,15 +17,17 @@ var rightAnswer
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
     document.getElementById("question").innerHTML = gameQuestions.questions[page];
-
+    
     for(var i = 0; i < gameQuestions.answers[page].length; i++) {
       var answerButton = document.createElement("button");
-      answerButton.innerHTML=gameQuestions.answers[page][i];
       answerButton.classList.add("btn");
+      answerButton.innerHTML=gameQuestions.answers[page][i];
       $("div.button").append($(answerButton));
-    // start 15s timer.
+    }
+    
+// start 15s timer.
     run();
-  }
+  
 }   
 var intervalId;
 function run() {
@@ -44,7 +46,9 @@ function run() {
       clearInterval(intervalId);
       unanswered++;
       console.log("unanswered timeout" + unanswered);
-      document.getElementById("answer-output").innerHTML = "The answer is " +rightAnswer[page];
+
+      document.getElementById("answer-output").innerHTML = "The answer is " +gameQuestions.rightAnswer[page];
+
       reset();
       }
   }
@@ -52,9 +56,8 @@ function run() {
   
 
   // Create a listener for button click
-    $(".btn").click(function() {
-      $(".btn").remove();
-      var fired_button = $(this).val();
+  $(document).on("click", "button.btn", function(){
+    var fired_button = this.innerHTML;
 
       console.log(fired_button);
       if (fired_button == rightAnswer[page]){
@@ -72,6 +75,7 @@ function run() {
     });
 
     function reset(){
+      $(".btn").remove();
       page++;
       console.log("page number " + page);
       clearInterval(intervalId);
