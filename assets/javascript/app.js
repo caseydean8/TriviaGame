@@ -60,14 +60,15 @@ function run() {
     var fired_button = this.innerHTML;
 
       console.log(fired_button);
-      if (fired_button == rightAnswer[page]){
+      if (fired_button === gameQuestions.rightAnswer[page]){
+        console.log(gameQuestions.rightAnswer[page]);
           document.getElementById("answer-output").innerHTML = "Correct! the answer is " + $(this).text();
           correctAnswers++;
           // console.log("right " + correctAnswers);
           reset();
       }
       else {
-        document.getElementById("answer-output").innerHTML = "Incorrect! the answer is " + rightAnswer[page];
+        document.getElementById("answer-output").innerHTML = "Incorrect! the answer is " + gameQuestions.rightAnswer[page];
         incorrectAnswers++;
         // console.log("wrong " + incorrectAnswers);
         reset();
