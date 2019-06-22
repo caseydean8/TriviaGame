@@ -49,6 +49,9 @@ function run() {
       clearInterval(intervalId);
       unanswered++;
 
+    document.getElementById("question").innerHTML = "";
+
+
       document.getElementById("answer-output").innerHTML = "The answer is " +gameQuestions.rightAnswer[page];
       
       reset();
@@ -61,7 +64,8 @@ function run() {
   $("div.button").on("click", "button.btn", function(){
     var fired_button = this.innerHTML;
 
-      console.log(fired_button);
+    document.getElementById("question").innerHTML = "";
+  
       if (fired_button === gameQuestions.rightAnswer[page]){
         document.getElementById("answer-output").innerHTML = "Correct! the answer is " + $(this).text();
           correctAnswers++;

@@ -15,11 +15,13 @@
     grid-auto-rows: minmax(100px, auto);
     justify-items: stretch;
     align-items: stretch;
+    height: 90%;
 }
 
 .container > div  {
     background: #eee;
     padding: 1em;
+    text-align: center;
 }
 
 .container > div:nth-child(odd) { 
@@ -28,5 +30,6 @@
 
 .button {
     display: grid;
+    grid-auto-rows: minmax(80px, auto);
 }
 
