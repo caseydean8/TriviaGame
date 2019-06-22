@@ -15,7 +15,6 @@
     grid-auto-rows: minmax(100px, auto);
     justify-items: stretch;
     align-items: stretch;
-    height: 80%;
 }
 
 .container > div  {
@@ -29,6 +28,5 @@
 
 .button {
     display: grid;
-    height: 80%;
 }
 

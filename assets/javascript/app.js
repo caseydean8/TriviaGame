@@ -90,7 +90,7 @@ function run() {
       
       clearInterval(intervalId);
       if (page === gameQuestions.questions.length){
-        gameReset();
+        setTimeout(gameReset, 3000);
       }
       else {
         setTimeout(startGame, 3000);
