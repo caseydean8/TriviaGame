@@ -102,9 +102,14 @@ function run() {
       document.getElementById("start-button").innerHTML = "Play Again";
       var $correctDisplay = ("<div>", {id: "correct-answers"});
       var $incorrectDisplay = ("<div>", {id: "incorrect-answers"});
-      $correctDisplay.innerHTML = correctAnswers;
-      $incorrectDisplay.innerHTML = incorrectAnswers = unanswered;
-      $(".header").append($correctDisplay, $incorrectDisplay);
+      var good = correctAnswers;
+      console.log($correctDisplay);
+      var bad = incorrectAnswers + unanswered;
+      console.log($incorrectDisplay);
+      $(".header").append($correctDisplay.innerHTML = "You got " + good + " answers correct. ");
+
+      $(".header").append($incorrectDisplay);
+
 
     }
     
