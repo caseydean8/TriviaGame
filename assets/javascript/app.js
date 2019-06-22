@@ -17,6 +17,7 @@ var rightAnswer
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
 
+
   $("#start-button").remove();
   
   document.getElementById("answer-output").innerHTML = "";
@@ -84,6 +85,7 @@ function run() {
     function reset(){
       $(".btn").remove();
       page++;
+
       
       clearInterval(intervalId);
       if (page === gameQuestions.questions.length){
@@ -99,6 +101,11 @@ function run() {
 
     function gameReset(){
       page = 0;
+
+      document.getElementById("question").innerHTML = "";
+
+      document.getElementById("answer-output").innerHTML = "";
+
       
       var $correctDisplay = ("<div>", {id: "correct-answers"});
       var $incorrectDisplay = ("<div>", {id: "incorrect-answers"});
@@ -109,25 +116,26 @@ function run() {
       $("#right").append($correctDisplay.innerHTML = "You got " + good + " correct.");
 
       $("#wrong").append($incorrectDisplay.innerHTML = "You got " + bad + " wrong.");
-      addElement();
-      function addElement() {
-        // Adds an element to the document
-        var p = document.getElementById("reset-button");
-        var newElement = document.createElement("button");
-        // newElement.setAttribute('onClick', startGame);
-        newElement.innerHTML = "Play Again";
-        p.appendChild(newElement);
-    }
+    //   addElement();
+    //   function addElement() {
+    //     // Adds an element to the document
+    //     var p = document.getElementById("reset-button");
+    //     var newElement = document.createElement("button");
+    //     // newElement.setAttribute('onClick', startGame);
+    //     newElement.innerHTML = "Play Again";
+    //     p.appendChild(newElement);
+    // }
 
-    $(document).on("click", "#reset-button", function(){
+    var resetButton = document.createElement("button");
+    resetButton.classList.add("reset-button");
+    resetButton.innerHTML = "Play Again!";
+    $("div.button").append($(resetButton));
+
+    $(document).on("click", ".reset-button", function(){
       startGame();
+    $(".reset-button").remove();
+
     })
-
-      // var startOver = document.createElement("button");
-      // document.getElementById("reset-button").innerHTML = "Play again!";
-
-      // $("#reset-button").append($(startOver));
-      
 
 
     }
