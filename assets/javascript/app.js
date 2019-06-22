@@ -17,7 +17,7 @@ var rightAnswer
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
 
-  // $("#start-button").remove();
+  $("#start-button").remove();
   
   document.getElementById("answer-output").innerHTML = "";
 
@@ -99,16 +99,35 @@ function run() {
 
     function gameReset(){
       page = 0;
-      document.getElementById("start-button").innerHTML = "Play Again";
+      
       var $correctDisplay = ("<div>", {id: "correct-answers"});
       var $incorrectDisplay = ("<div>", {id: "incorrect-answers"});
       var good = correctAnswers;
       console.log($correctDisplay);
       var bad = incorrectAnswers + unanswered;
       console.log($incorrectDisplay);
-      $(".header").append($correctDisplay.innerHTML = "You got " + good + " answers correct. ");
+      $("#right").append($correctDisplay.innerHTML = "You got " + good + " correct.");
 
-      $(".header").append($incorrectDisplay);
+      $("#wrong").append($incorrectDisplay.innerHTML = "You got " + bad + " wrong.");
+      addElement();
+      function addElement() {
+        // Adds an element to the document
+        var p = document.getElementById("reset-button");
+        var newElement = document.createElement("button");
+        // newElement.setAttribute('onClick', startGame);
+        newElement.innerHTML = "Play Again";
+        p.appendChild(newElement);
+    }
+
+    $(document).on("click", "#reset-button", function(){
+      startGame();
+    })
+
+      // var startOver = document.createElement("button");
+      // document.getElementById("reset-button").innerHTML = "Play again!";
+
+      // $("#reset-button").append($(startOver));
+      
 
 
     }
