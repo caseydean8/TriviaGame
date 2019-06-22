@@ -116,29 +116,29 @@ function run() {
       $("#right").append($correctDisplay.innerHTML = "You got " + good + " correct.");
 
       $("#wrong").append($incorrectDisplay.innerHTML = "You got " + bad + " wrong.");
-    //   addElement();
-    //   function addElement() {
-    //     // Adds an element to the document
-    //     var p = document.getElementById("reset-button");
-    //     var newElement = document.createElement("button");
-    //     // newElement.setAttribute('onClick', startGame);
-    //     newElement.innerHTML = "Play Again";
-    //     p.appendChild(newElement);
-    // }
 
-    var resetButton = document.createElement("button");
-    resetButton.classList.add("reset-button");
-    resetButton.innerHTML = "Play Again!";
-    $("div.button").append($(resetButton));
+      var resetButton = document.createElement("button");
+      resetButton.classList.add("reset-button");
+      resetButton.innerHTML = "Play Again!";
+      $("div.button").append($(resetButton));
 
-    $(document).on("click", ".reset-button", function(){
-      startGame();
-    $(".reset-button").remove();
-
-    })
-
-
+      $(document).on("click", ".reset-button", function(){
+        console.log(resetButton.innerHTML);
+        $(".reset-button").remove();
+        clearAnswertally();
+      })
     }
+
+  function clearAnswertally() {
+    correctAnswers = 0;
+    incorrectAnswers = 0;
+    document.getElementById("right").innerHTML = "";
+    document.getElementById("wrong").innerHTML = "";
+
+    startGame();
+
+  }
+
     
   
   
