@@ -2,13 +2,11 @@
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0;
-// var countdownNumber = 5;
-// var intervalId;
 
 var gameQuestions = {
-    questions: ["Which movie won the special achievement award at the 60th Academy Awards?", "Which supernatural thrillers protagonist was named Jack Burton?",],
-    answers: [["Lethal Weapon", "Full Metal Jacket", "Robocop", "Predator"], ["The Golden Child", "Big Trouble in Little China", "Howard the Duck", "Innerspace"]],
-    rightAnswer: ["Robocop", "Big Trouble in Little China"]
+    questions: ["Which movie won the special achievement award at the 60th Academy Awards?", "Which supernatural thrillers protagonist was named Jack Burton?", "What actor played a cop who infiltrates a psychotic motorcycle gang in the film Stone Cold?"],
+    answers: [["Lethal Weapon", "Full Metal Jacket", "Robocop", "Predator"], ["The Golden Child", "Big Trouble in Little China", "Howard the Duck", "Innerspace"], ["Sylvester Stallone", "Dolph Lundgren", "Kurt Russel", "Bryan Bozworth" ]],
+    rightAnswer: ["Robocop", "Big Trouble in Little China", "Bryan Bozworth"]
 };
 var page = 0;
 var rightAnswer
@@ -16,31 +14,29 @@ var rightAnswer
 
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
-
-
   $("#start-button").remove();
+
+  document.getElementById("timer").innerHTML = "15";
+
   
   document.getElementById("answer-output").innerHTML = "";
 
 
-    document.getElementById("question").innerHTML = gameQuestions.questions[page];
-    
-    for(var i = 0; i < gameQuestions.answers[page].length; i++) {
-      var answerButton = document.createElement("button");
-      answerButton.classList.add("btn");
-      answerButton.innerHTML = gameQuestions.answers[page][i];
-      $("div.button").append($(answerButton));
-    }
-    
+  document.getElementById("question").innerHTML = gameQuestions.questions[page];
+  for(var i = 0; i < gameQuestions.answers[page].length; i++) {
+    var answerButton = document.createElement("button");
+    answerButton.classList.add("btn");
+    answerButton.innerHTML = gameQuestions.answers[page][i];
+    $("div.button").append($(answerButton));
+  }
 // start 15s timer.
-    run();
-  
+  run();
 }   
 var intervalId;
 function run() {
   clearInterval(intervalId);
   intervalId = setInterval(decrement, 1000);
-  var countdownNumber = 16;
+  var countdownNumber = 15;
 
   function decrement() {
         //  Decrease number by one.
@@ -52,7 +48,6 @@ function run() {
         //  ...run the stop function.
       clearInterval(intervalId);
       unanswered++;
-      console.log("unanswered timeout" + unanswered);
 
       document.getElementById("answer-output").innerHTML = "The answer is " +gameQuestions.rightAnswer[page];
       
@@ -63,22 +58,20 @@ function run() {
   
 
   // Create a listener for button click
-  // $(document).off("click");
   $("div.button").on("click", "button.btn", function(){
     var fired_button = this.innerHTML;
 
       console.log(fired_button);
       if (fired_button === gameQuestions.rightAnswer[page]){
-        console.log(gameQuestions.rightAnswer[page]);
-          document.getElementById("answer-output").innerHTML = "Correct! the answer is " + $(this).text();
+        document.getElementById("answer-output").innerHTML = "Correct! the answer is " + $(this).text();
           correctAnswers++;
-          // console.log("right " + correctAnswers);
+          
           reset();
       }
       else {
         document.getElementById("answer-output").innerHTML = "Incorrect! the answer is " + gameQuestions.rightAnswer[page];
         incorrectAnswers++;
-        // console.log("wrong " + incorrectAnswers);
+        
         reset();
       }
     });
@@ -86,9 +79,9 @@ function run() {
     function reset(){
       $(".btn").remove();
       page++;
-
       
       clearInterval(intervalId);
+      // Set delay for next question.
       if (page === gameQuestions.questions.length){
         setTimeout(gameReset, 3000);
       }
@@ -96,12 +89,12 @@ function run() {
         setTimeout(startGame, 3000);
       }
 
-      // clearInterval(intervalId);
-      // startGame();
   }
 
     function gameReset(){
       page = 0;
+
+      document.getElementById("timer").innerHTML = "";
 
       document.getElementById("question").innerHTML = "";
 
@@ -111,9 +104,8 @@ function run() {
       var $correctDisplay = ("<div>", {id: "correct-answers"});
       var $incorrectDisplay = ("<div>", {id: "incorrect-answers"});
       var good = correctAnswers;
-      console.log($correctDisplay);
       var bad = incorrectAnswers + unanswered;
-      console.log($incorrectDisplay);
+      
       $("#right").append($correctDisplay.innerHTML = "You got " + good + " correct.");
 
       $("#wrong").append($incorrectDisplay.innerHTML = "You got " + bad + " wrong.");
@@ -122,8 +114,7 @@ function run() {
       resetButton.classList.add("reset-button");
       resetButton.innerHTML = "Play Again!";
       $("#reset-button").append($(resetButton));
-      // $(document).off("click");
-
+      
       $(document).off().on("click", ".reset-button", function(){
         console.log(resetButton.innerHTML);
         $(".reset-button").remove();
@@ -140,31 +131,4 @@ function run() {
     document.getElementById("wrong").innerHTML = "";
 
     startGame();
-
   }
-
-    
-  
-  
-
-
-
-
-
-
-// If player guesses before timer expires.
-
-
-// Alert player if they are correct or incorrect and show correct answer. 
-
-
-// If timer expires show correct answer.
-
-
-// Keep track of players correct guesses, incorrect guesses, and timer expiration.
-
-
-// Load next screen with timer ~4s.
-
-
-// After last question, show correct, incorrect, and unanswered(timer expiration) tallies. Also create a start over button that resets the game//
