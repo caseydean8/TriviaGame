@@ -15,7 +15,7 @@
     grid-auto-rows: minmax(100px, auto);
     justify-items: stretch;
     align-items: stretch;
-    height: 90%;
+    font-family: 'Slabo 27px', serif;
 }
 
 .container > div  {
