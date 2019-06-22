@@ -63,7 +63,8 @@ function run() {
   
 
   // Create a listener for button click
-  $(document).on("click", "button.btn", function(){
+  $(document).off("click");
+  $("div.button").on("click", "button.btn", function(){
     var fired_button = this.innerHTML;
 
       console.log(fired_button);
@@ -120,9 +121,10 @@ function run() {
       var resetButton = document.createElement("button");
       resetButton.classList.add("reset-button");
       resetButton.innerHTML = "Play Again!";
-      $("div.button").append($(resetButton));
+      $("#reset-button").append($(resetButton));
+      // $(document).off("click");
 
-      $(document).on("click", ".reset-button", function(){
+      $(document).off().on("click", ".reset-button", function(){
         console.log(resetButton.innerHTML);
         $(".reset-button").remove();
         clearAnswertally();
