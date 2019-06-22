@@ -63,7 +63,7 @@ function run() {
   
 
   // Create a listener for button click
-  $(document).off("click");
+  // $(document).off("click");
   $("div.button").on("click", "button.btn", function(){
     var fired_button = this.innerHTML;
 
@@ -134,6 +134,8 @@ function run() {
   function clearAnswertally() {
     correctAnswers = 0;
     incorrectAnswers = 0;
+    unanswered = 0;
+
     document.getElementById("right").innerHTML = "";
     document.getElementById("wrong").innerHTML = "";
 
