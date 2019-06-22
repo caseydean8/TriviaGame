@@ -17,7 +17,7 @@ var rightAnswer
 // Use onclick event to populate question field and answer buttons.
 function startGame() {
 
-  $("#start-button").remove();
+  // $("#start-button").remove();
   
   document.getElementById("answer-output").innerHTML = "";
 
@@ -86,14 +86,19 @@ function run() {
       page++;
       
       clearInterval(intervalId);
-
-      setTimeout(startGame, 3000);
+      if (page === gameQuestions.questions.length){
+        gameReset();
+      }
+      else {
+        setTimeout(startGame, 3000);
+      }
 
       // clearInterval(intervalId);
       // startGame();
   }
 
     function gameReset(){
+      page = 0;
       document.getElementById("start-button").innerHTML = "Play Again";
       var $correctDisplay = ("<div>", {id: "correct-answers"});
       var $incorrectDisplay = ("<div>", {id: "incorrect-answers"});
