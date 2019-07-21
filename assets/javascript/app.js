@@ -13,7 +13,7 @@ var rightAnswer
 
 
 // Use onclick event to populate question field and answer buttons.
-function startGame() {
+const startGame = () => {
   $("#start-button").remove();
 
   document.getElementById("timer").innerHTML = "15";
@@ -31,7 +31,7 @@ function startGame() {
 }
 
 var intervalId;
-function run() {
+const run = () => {
   clearInterval(intervalId);
   intervalId = setInterval(decrement, 1000);
   var countdownNumber = 15;
@@ -77,7 +77,7 @@ function run() {
       }
     });
 
-    function reset(){
+  const reset = () => {
       $(".btn").remove();
       page++;
       
@@ -92,7 +92,7 @@ function run() {
 
   }
 
-    function gameReset(){
+  const gameReset = () => {
       page = 0;
 
       document.getElementById("timer").innerHTML = "";
@@ -117,13 +117,12 @@ function run() {
       $("#reset-button").append($(resetButton));
       
       $(document).off().on("click", ".reset-button", function(){
-        console.log(resetButton.innerHTML);
         $(".reset-button").remove();
         clearAnswerTally();
       })
     }
 
-  function clearAnswerTally() {
+  const clearAnswerTally = () => {
     correctAnswers = 0;
     incorrectAnswers = 0;
     unanswered = 0;
