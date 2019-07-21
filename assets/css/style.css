@@ -16,6 +16,7 @@
     justify-items: stretch;
     align-items: stretch;
     font-family: 'Slabo 27px', serif;
+    min-height: 29rem;
 }
 
 .container > div  {

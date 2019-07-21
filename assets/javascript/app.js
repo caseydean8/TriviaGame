@@ -17,12 +17,9 @@ function startGame() {
   $("#start-button").remove();
 
   document.getElementById("timer").innerHTML = "15";
-
-  
   document.getElementById("answer-output").innerHTML = "";
-
-
   document.getElementById("question").innerHTML = gameQuestions.questions[page];
+  
   for(var i = 0; i < gameQuestions.answers[page].length; i++) {
     var answerButton = document.createElement("button");
     answerButton.classList.add("btn");
@@ -31,7 +28,8 @@ function startGame() {
   }
 // start 15s timer.
   run();
-}   
+}
+
 var intervalId;
 function run() {
   clearInterval(intervalId);
@@ -49,10 +47,9 @@ function run() {
       clearInterval(intervalId);
       unanswered++;
 
-    document.getElementById("question").innerHTML = "";
+      document.getElementById("question").innerHTML = "";
 
-
-      document.getElementById("answer-output").innerHTML = "The answer is " +gameQuestions.rightAnswer[page];
+      document.getElementById("answer-output").innerHTML = "The answer is " + gameQuestions.rightAnswer[page];
       
       reset();
       }
@@ -60,7 +57,7 @@ function run() {
 }
   
 
-  // Create a listener for button click
+  // Create a listener for question button click
   $("div.button").on("click", "button.btn", function(){
     var fired_button = this.innerHTML;
 
@@ -122,11 +119,11 @@ function run() {
       $(document).off().on("click", ".reset-button", function(){
         console.log(resetButton.innerHTML);
         $(".reset-button").remove();
-        clearAnswertally();
+        clearAnswerTally();
       })
     }
 
-  function clearAnswertally() {
+  function clearAnswerTally() {
     correctAnswers = 0;
     incorrectAnswers = 0;
     unanswered = 0;
