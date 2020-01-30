@@ -2,20 +2,20 @@
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0;
-
+var page = 0;
+var rightAnswer
 var gameQuestions = {
     questions: ["Which movie won the special achievement award at the 60th Academy Awards?", "Which supernatural thrillers protagonist was named Jack Burton?", "What actor played a cop who infiltrates a psychotic motorcycle gang in Stone Cold?"],
     answers: [["Lethal Weapon", "Full Metal Jacket", "Robocop", "Predator"], ["The Golden Child", "Big Trouble in Little China", "Howard the Duck", "Innerspace"], ["Sylvester Stallone", "Dolph Lundgren", "Kurt Russel", "Bryan Bozworth" ]],
     rightAnswer: ["Robocop", "Big Trouble in Little China", "Bryan Bozworth"]
 };
-var page = 0;
-var rightAnswer
 
 
 // Use onclick event to populate question field and answer buttons.
 const startGame = () => {
   $("#start-button").remove();
-  document.getElementById("timer").style.display = "block";
+  
+  document.getElementById("timer").style.display = "flex"
   document.getElementById("timer").innerHTML = "15";
   document.getElementById("answer-output").innerHTML = "";
   document.getElementById("question").innerHTML = gameQuestions.questions[page];
