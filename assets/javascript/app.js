@@ -76,13 +76,13 @@ $("div.button").on("click", "button.btn", function() {
   document.getElementById("question").innerHTML = "";
 
   if (fired_button === gameQuestions.rightAnswer[page]) {
-    document.getElementById("answer-output").innerHTML =
+    document.getElementById("question").innerHTML =
       "Correct! The answer is " + $(this).text();
     correctAnswers++;
 
     reset();
   } else {
-    document.getElementById("answer-output").innerHTML =
+    document.getElementById("question").innerHTML =
       "Incorrect! The answer is " + gameQuestions.rightAnswer[page];
     incorrectAnswers++;
 
@@ -118,7 +118,7 @@ const gameReset = () => {
     ($correctDisplay.innerHTML = "You got " + good + " correct.")
   );
 
-  $("#wrong").append(
+  $("#right").append(
     ($incorrectDisplay.innerHTML = "You got " + bad + " wrong.")
   );
   // ------- RESET BUTTON -------
