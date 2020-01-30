@@ -87,6 +87,10 @@
   .button {
     grid-area: 4 / 1 / 5 / 2;
   }
+
+  #summary {
+    grid-area: 5 / 1 / 6 / 2;
+  }
 /* ------- Grid Template ------- */
   .div1 {
     grid-area: 1 / 1 / 2 / 2;

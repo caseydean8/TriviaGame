@@ -109,18 +109,19 @@ const gameReset = () => {
   document.getElementById("question").innerHTML = "";
   document.getElementById("answer-output").innerHTML = "";
 
-  var $correctDisplay = ("<div>", { id: "correct-answers" });
-  var $incorrectDisplay = ("<div>", { id: "incorrect-answers" });
+  // const summary = ("<p>", { id: "correct-answers" });
+  const summary = ("<p>");
+  // var $incorrectDisplay = ("<div>", { id: "incorrect-answers" });
   var good = correctAnswers;
   var bad = incorrectAnswers + unanswered;
 
-  $("#right").append(
-    ($correctDisplay.innerHTML = "You got " + good + " correct.")
+  $("#question").append(
+    (summary.innerHTML = `You got ${good} correct, and you got ${bad} wrong.`)
   );
 
-  $("#right").append(
-    ($incorrectDisplay.innerHTML = "You got " + bad + " wrong.")
-  );
+  // $("#right").append(
+  //   ($incorrectDisplay.innerHTML = "You got " + bad + " wrong.")
+  // );
   // ------- RESET BUTTON -------
   document.getElementById("timer").style.display = "none";
   const resetButton = document.createElement("button");
