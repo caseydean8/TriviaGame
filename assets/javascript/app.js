@@ -15,7 +15,7 @@ var rightAnswer
 // Use onclick event to populate question field and answer buttons.
 const startGame = () => {
   $("#start-button").remove();
-
+  document.getElementById("timer").style.display = "block";
   document.getElementById("timer").innerHTML = "15";
   document.getElementById("answer-output").innerHTML = "";
   document.getElementById("question").innerHTML = gameQuestions.questions[page];
