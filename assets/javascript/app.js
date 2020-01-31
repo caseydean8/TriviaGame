@@ -47,7 +47,7 @@ const startGame = () => {
   run();
 };
 
-const intervalId;
+let intervalId;
 const run = () => {
   clearInterval(intervalId);
   intervalId = setInterval(decrement, 1000);
