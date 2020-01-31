@@ -61,7 +61,7 @@ const run = () => {
 
       document.getElementById("question").innerHTML = "";
 
-      document.getElementById("answer-output").innerHTML =
+      document.getElementById("question").innerHTML =
         "The answer is " + gameQuestions.rightAnswer[page];
 
       reset();
@@ -142,8 +142,8 @@ const clearAnswerTally = () => {
   incorrectAnswers = 0;
   unanswered = 0;
 
-  document.getElementById("right").innerHTML = "";
-  document.getElementById("wrong").innerHTML = "";
+  // document.getElementById("right").innerHTML = "";
+  // document.getElementById("wrong").innerHTML = "";
 
   startGame();
 };
