@@ -17,6 +17,7 @@
   /* align-items: stretch; */
   font-family: "Slabo 27px", serif;
   /* min-height: 30rem; */
+  background-color: linear-gradient(to right, #beeef7, #ff8246);
 }
 
 .container > div {
@@ -34,6 +35,44 @@
   /* grid-auto-rows: minmax(80px, auto); */
 }
 
+/* 65:65;
+$depth:6;
+$color:#7fbb98;
+darken(#7fbb98,10%):darken($color,10%);
+$lighten-on-hover:7%;
+$button-speed:.06;
+$timing-function: ease-out; */
+
+/* .button {
+    cursor:pointer;
+    margin-left:5px;
+    margin-bottom:15px;
+    text-shadow:0 -2px 0 darken(#7fbb98,20%),0 1px 1px lighten(#7fbb98,20%) ;
+    box-sizing:border-box;
+    font-size:2em;
+    font-family: Helvetica, Arial, Sans-Serif;
+    text-decoration:none;
+    font-weight:bold;
+    color:darken(#7fbb98,10%);
+    /* &:visited {
+      color:darken(#7fbb98,10%);
+    } */
+    /* height:65+px;
+    line-height:65+px;
+    padding: 0 ((65/2)+px);
+    display:inline-block;
+    width:auto;
+    background: linear-gradient(to bottom,
+      saturate(lighten(#7fbb98,15%),35%) 0%,
+      saturate(lighten(#7fbb98,12%),15%) 26%,
+      (#7fbb98 100%);
+    border-radius:5px;
+    border-top:1px solid lighten(#7fbb98,22%);
+    border-bottom:1px solid lighten(#7fbb98,20%);
+   top:0;
+    transition:all (.06s) ease-out;
+    position:relative;
+  } */ 
 /* -------- Media Query ----------------- */
 
 @media screen and (max-width: 768px) {
@@ -43,7 +82,9 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1.5fr) 1fr 4fr 1fr;
     grid-column-gap: 0px;
-    grid-row-gap: 10px;
+    /* grid-row-gap: 10px; */
+    background-color: linear-gradient(to right, #beeef7, #ff8246);
+
   }
 
 .btn {
@@ -51,6 +92,7 @@
     border-width: 1.5px;
     border-radius: 10px;
     margin: 5px;
+    font-size: 140%;
 }
 
   /* ------- centering here ------- */
@@ -94,13 +136,12 @@
 
   #question {
     grid-area: 3 / 1 / 4 / 2;
+    font-size: 20px;
+    padding: 10px;
   }
 
   .button {
     grid-area: 4 / 1 / 5 / 2;
-    /* display: flex; */
-    /* align-items: center;
-    justify-content: center; */
   }
 
   #summary {

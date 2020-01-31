@@ -20,7 +20,12 @@ var gameQuestions = {
     ],
     ["Sylvester Stallone", "Dolph Lundgren", "Kurt Russel", "Bryan Bozworth"]
   ],
-  rightAnswer: ["Robocop", "Big Trouble in Little China", "Bryan Bozworth"]
+  rightAnswer: ["Robocop", "Big Trouble in Little China", "Bryan Bozworth"],
+  gif: [
+    "https://giphy.com/gifs/4EFuzRi9HpbW/html5",
+    "https://giphy.com/gifs/iY9p9jXXUq4YWFy3g3/html5",
+    "https://66.media.tumblr.com/c7eb4eb6b04d68b1c5c534c41ff3f41c/tumblr_pfxpvvEBW81snghrzo1_400.gif"
+  ]
 };
 
 // Use onclick event to populate question field and answer buttons.
@@ -33,7 +38,7 @@ const startGame = () => {
   document.getElementById("question").innerHTML = gameQuestions.questions[page];
 
   for (var i = 0; i < gameQuestions.answers[page].length; i++) {
-    var answerButton = document.createElement("button");
+    const answerButton = document.createElement("button");
     answerButton.classList.add("btn");
     answerButton.innerHTML = gameQuestions.answers[page][i];
     $("div.button").append($(answerButton));
@@ -72,12 +77,15 @@ const run = () => {
 // Create a listener for question button click
 $("div.button").on("click", "button.btn", function() {
   var fired_button = this.innerHTML;
-
+  const gifHold = $("<img>");
   document.getElementById("question").innerHTML = "";
 
   if (fired_button === gameQuestions.rightAnswer[page]) {
-    document.getElementById("question").innerHTML =
+    document.getElementById("question").textContent =
       "Correct! The answer is " + $(this).text();
+    $(gifHold).attr("src", gameQuestions.gif[page]);
+    // document.getElementById("button").outerHTML = gifHold;
+    $(".button").append(gifHold);
     correctAnswers++;
 
     reset();
@@ -110,7 +118,7 @@ const gameReset = () => {
   document.getElementById("answer-output").innerHTML = "";
 
   // const summary = ("<p>", { id: "correct-answers" });
-  const summary = ("<p>");
+  const summary = "<p>";
   // var $incorrectDisplay = ("<div>", { id: "incorrect-answers" });
   var good = correctAnswers;
   var bad = incorrectAnswers + unanswered;
