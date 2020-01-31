@@ -22,7 +22,7 @@ var gameQuestions = {
   ],
   rightAnswer: ["Robocop", "Big Trouble in Little China", "Bryan Bozworth"],
   gif: [
-    "https://giphy.com/gifs/4EFuzRi9HpbW/html5",
+    `https://media.giphy.com/media/4EFuzRi9HpbW/giphy.gif`,
     "https://giphy.com/gifs/iY9p9jXXUq4YWFy3g3/html5",
     "https://66.media.tumblr.com/c7eb4eb6b04d68b1c5c534c41ff3f41c/tumblr_pfxpvvEBW81snghrzo1_400.gif"
   ]

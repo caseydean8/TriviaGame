@@ -87,6 +87,10 @@ $timing-function: ease-out; */
 
   }
 
+  img {
+      width: 100%;
+  }
+
 .btn {
     border-color: black;
     border-width: 1.5px;
