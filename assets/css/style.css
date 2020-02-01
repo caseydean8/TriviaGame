@@ -8,16 +8,13 @@
   font-family: "Slabo 27px", serif;
   background: #eee;
   height: 100vh;
+  max-width: 1440px;
+  max-height: 913px;
+  margin: 0 auto;
 }
 
 .header, .start {
-  /* display: grid; */
-  /* grid-template-columns: 1fr 1.68fr 1fr;
-  grid-template-rows: 1fr 1.68fr 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px; */
   grid-area: 1 / 2 / 2 / 3;
-  max-width: 1024px;
 }
 
 #timer {
@@ -25,8 +22,12 @@
     display: none;
     font-size: 4em;
 }
+
+#question {
+    grid-area: 1 / 2 / 2 / 3;
+    margin-top: 181px;
+}
 .button {
-    max-width: 1024px;
     grid-area: 2 / 2 / 3 / 3;
 }
 
@@ -38,6 +39,7 @@
     border-radius: 15px;
     border-width: 2px;
     font-size: 2em;
+    margin-top: 46px;
   }
 
   .reset-button {
@@ -46,10 +48,12 @@
 
 .btn {
     width: 88%;
+    max-width: 333px;
   border-color: black;
   border-width: 1.5px;
   border-radius: 10px;
   margin: 5px;
+  padding: 10px;
   font-size: 140%;
 }
 
@@ -132,6 +136,7 @@
     grid-area: 3 / 1 / 4 / 2;
     font-size: 20px;
     padding: 10px;
+    margin: 0;
   }
 
   .button {
