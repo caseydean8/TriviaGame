@@ -1,9 +1,3 @@
-// Create global variable for correct answers, incorrect answers, and unanswered.
-let correctAnswers = 0;
-let incorrectAnswers = 0;
-let unanswered = 0;
-let page = 0;
-let rightAnswer;
 const game = {
   questions: [
     "Which movie won the special achievement award at the 60th Academy Awards?",
@@ -28,7 +22,6 @@ const game = {
   ]
 };
 
-// Use onclick event to populate question field and answer buttons.
 const startGame = () => {
   $(".gif-hold").remove();
   document.getElementById("start-button").style.display = "none";
@@ -43,67 +36,71 @@ const startGame = () => {
     answerButton.innerHTML = game.answers[page][i];
     $("div.button").append($(answerButton));
   }
-  // start 15s timer.
+
   run();
 };
 
+$("#start-button").on("click", startGame);
+
 let intervalId;
+let page = 0;
+let unanswered = 0;
+
 const run = () => {
   clearInterval(intervalId);
   intervalId = setInterval(decrement, 1000);
-  let countdownNumber = 15;
+  let countdown = 15;
 
   function decrement() {
-    //  Decrease number by one.
-    countdownNumber--;
-    //  Show the number in the #show-number tag.
-    document.getElementById("timer").innerHTML = countdownNumber;
-    //  Once number hits zero...
-    if (countdownNumber === 0) {
-      //  ...run the stop function.
+    countdown--;
+
+    document.getElementById("timer").innerHTML = countdown;
+
+    if (countdown === 0) {
       clearInterval(intervalId);
       unanswered++;
-
       document.getElementById("question").innerHTML = "";
-
-      document.getElementById("question").innerHTML =
-        "The answer is " + game.rightAnswer[page];
+      document.getElementById(
+        "question"
+      ).innerHTML = `The answer is <br>${game.rightAnswer[page]}`;
 
       reset();
     }
   }
 };
 
-// Create a listener for question button click
-$("div.button").on("click", "button.btn", function() {
-  var fired_button = this.innerHTML;
+let correctAnswers = 0;
+let incorrectAnswers = 0;
+
+$(".button").on("click", ".btn", function() {
   document.getElementById("question").textContent = "";
 
-  if (fired_button === game.rightAnswer[page]) {
-    document.getElementById("question").textContent =
-      "Correct! The answer is " + $(this).text();
+  const firedButton = this.textContent;
+  if (firedButton === game.rightAnswer[page]) {
+    document.getElementById(
+      "question"
+    ).innerHTML = `Correct! The answer is<br>${game.rightAnswer[page]}`;
     correctAnswers++;
   } else {
-    document.getElementById("question").innerHTML =
-      "Incorrect! The answer is " + game.rightAnswer[page];
+    document.getElementById(
+      "question"
+    ).innerHTML = `Incorrect! The answer is<br>${game.rightAnswer[page]}`;
     incorrectAnswers++;
   }
-  // const gifHold = $("<img>");
-  // gifHold.addClass("gif-hold");
-  // $(gifHold).attr("src", game.gif[page]);
-  // $(".button").append(gifHold);
+
   reset();
 });
 
 const reset = () => {
   $(".btn").remove();
+
   const gifHold = $("<img>");
   gifHold.addClass("gif-hold");
   $(gifHold).attr("src", game.gif[page]);
   $(".button").append(gifHold);
+
   page++;
   clearInterval(intervalId);
-  // Set delay for next question.
   page === game.questions.length
     ? setTimeout(gameReset, 3000)
     : setTimeout(startGame, 3000);
@@ -111,19 +108,20 @@ const reset = () => {
 
 const gameReset = () => {
   page = 0;
+
   document.getElementById("timer").innerHTML = "";
   document.getElementById("question").innerHTML = "";
   document.getElementById("answer-output").innerHTML = "";
+
   const summary = "<p>";
   const good = correctAnswers;
   const bad = incorrectAnswers + unanswered;
-
   $("#question").append(
-    (summary.innerHTML = `You got ${good} correct, and you got ${bad} wrong.`)
+    (summary.textContent = `You got ${good} correct, and you got ${bad} wrong.`)
   );
 
-  // ------- RESET BUTTON -------
   document.getElementById("timer").style.display = "none";
+
   const resetButton = document.createElement("button");
   resetButton.classList.add("reset-button");
   resetButton.innerHTML = "Play Again!";
