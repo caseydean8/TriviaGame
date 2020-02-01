@@ -88,6 +88,10 @@ $("div.button").on("click", "button.btn", function() {
       "Incorrect! The answer is " + game.rightAnswer[page];
     incorrectAnswers++;
   }
+  // const gifHold = $("<img>");
+  // gifHold.addClass("gif-hold");
+  // $(gifHold).attr("src", game.gif[page]);
+  // $(".button").append(gifHold);
   reset();
 });
 
