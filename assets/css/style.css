@@ -1,12 +1,16 @@
+body {
+  background: #eee;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 1.68fr 1fr;
   grid-template-rows: 1fr 1.68fr 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
   text-align: center;
   font-family: "Slabo 27px", serif;
-  background: #ff8246;
+  /* background: #beeef7; */
   height: 100vh;
   max-width: 1440px;
   max-height: 913px;
@@ -23,25 +27,31 @@
   grid-area: 1 / 2 / 2 / 3;
   display: none;
   font-size: 4em;
+  margin-top: 0.7em;
 }
 
 #question {
   grid-area: 1 / 2 / 2 / 3;
+  font-size: 20px;
   margin-top: 181px;
 }
+
 .button {
   grid-area: 2 / 2 / 3 / 3;
+}
+
+button {
+  background: #beeef7;
+  border-radius: 10px;
+  border-color: #373a6d;
+  color: #373a6d;
 }
 
 #start-button,
 .reset-button {
   width: 170px;
-  height: 61px;
-  border-color: #373a6d;
-  border-radius: 15px;
-  border-width: 2px;
-  background-color: #6fc2d0;
-  font-size: 2em;
+  height: 46px;
+  font-size: 1.5em;
   margin-top: 46px;
 }
 
@@ -52,17 +62,11 @@
 .btn {
   width: 88%;
   max-width: 333px;
-  background: #6fc2d0;
-  border-color: #373a6d;
-  border-width: 1.5px;
-  border-radius: 10px;
   margin: 5px;
   padding: 10px;
   font-size: 140%;
 }
 
-.header {
-}
 .start,
 #timer {
   display: flex;
@@ -73,41 +77,44 @@
 h1 {
   margin: 0 auto;
   font-size: 81px;
+  text-shadow: #ff8246;
+  text-shadow: -1px -1px 0 #ff8246, 1px -1px 0 #ff8246, -1px 1px 0 #ff8246,
+    1px 1px 0 #ff8246;
 }
 
 img {
   width: 100%;
+  border-radius: 5px;
 }
 
 .sidebar {
   grid-area: 1 / 1 / 4 / 2;
-  background:#beeef7;
+  /* background:; */
+  border-right: 2px solid #ff8246;
+  background: linear-gradient(90deg, #6fc2d0 0%, #beeef7 100%);
 }
 
 .sidebar-2 {
   grid-area: 1 / 3 / 4 / 4;
   background: #beeef7;
+  border-left: 2px solid #ff8246;
+  background: linear-gradient(270deg, #6fc2d0 0%, #beeef7 100%);
 }
 /* -------- Media Query ----------------- */
 
 @media screen and (max-width: 768px) {
   .container {
     height: 100vh;
-    display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1.5fr) 1fr 4fr 1fr;
+    grid-template-rows: 1.25fr 0.5fr 0.75fr 4fr 1fr;
     grid-column-gap: 0px;
+    background: rgb(238, 238, 238);
+    background: linear-gradient(
+      180deg,
+      rgba(238, 238, 238, 1) 0%,
+      rgba(255, 130, 70, 1) 100%
+    );
   }
-
-  .btn {
-    border-color: black;
-    border-width: 1.5px;
-    border-radius: 10px;
-    margin: 5px;
-    font-size: 140%;
-  }
-
-  /* ------- centering here ------- */
 
   .header,
   .start,
@@ -121,33 +128,23 @@ img {
     grid-area: 1 / 1 / 2 / 2;
   }
 
-  h1 {
-    margin: 0 auto;
-    font-size: 81px;
-  }
   .start {
     grid-area: 2 / 1 / 3 / 2;
   }
 
   #start-button,
   .reset-button {
-    width: 70%;
-    height: 70%;
-    border-color: black;
-    border-radius: 15px;
-    border-width: 2px;
-    font-size: 2em;
+    margin: 0;
   }
 
   #timer {
     grid-area: 2 / 1 / 3 / 2;
-    display: none;
-    font-size: 4em;
+    font-size: 2em;
+    margin: 0;
   }
 
   #question {
     grid-area: 3 / 1 / 4 / 2;
-    font-size: 20px;
     padding: 10px;
     margin: 0;
   }
@@ -156,12 +153,9 @@ img {
     grid-area: 4 / 1 / 5 / 2;
   }
 
-  #summary {
-    grid-area: 5 / 1 / 6 / 2;
-  }
-
-  .sidebar, .sidebar-2 {
-      background: #eee;
+  .sidebar,
+  .sidebar-2 {
+      display: none;
   }
   /* ------- Grid Template ------- */
   .div1 {
