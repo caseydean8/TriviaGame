@@ -6,50 +6,54 @@
   grid-row-gap: 0px;
   text-align: center;
   font-family: "Slabo 27px", serif;
-  background: #eee;
+  background: #ff8246;
   height: 100vh;
   max-width: 1440px;
   max-height: 913px;
   margin: 0 auto;
+  color: #373a6d;
 }
 
-.header, .start {
+.header,
+.start {
   grid-area: 1 / 2 / 2 / 3;
 }
 
 #timer {
-    grid-area: 1 / 2 / 2 / 3;
-    display: none;
-    font-size: 4em;
+  grid-area: 1 / 2 / 2 / 3;
+  display: none;
+  font-size: 4em;
 }
 
 #question {
-    grid-area: 1 / 2 / 2 / 3;
-    margin-top: 181px;
+  grid-area: 1 / 2 / 2 / 3;
+  margin-top: 181px;
 }
 .button {
-    grid-area: 2 / 2 / 3 / 3;
+  grid-area: 2 / 2 / 3 / 3;
 }
 
 #start-button,
-  .reset-button {
-    width: 170px;
-    height: 61px;
-    border-color: black;
-    border-radius: 15px;
-    border-width: 2px;
-    font-size: 2em;
-    margin-top: 46px;
-  }
+.reset-button {
+  width: 170px;
+  height: 61px;
+  border-color: #373a6d;
+  border-radius: 15px;
+  border-width: 2px;
+  background-color: #6fc2d0;
+  font-size: 2em;
+  margin-top: 46px;
+}
 
-  .reset-button {
-      width: 181px;
-  }
+.reset-button {
+  width: 181px;
+}
 
 .btn {
-    width: 88%;
-    max-width: 333px;
-  border-color: black;
+  width: 88%;
+  max-width: 333px;
+  background: #6fc2d0;
+  border-color: #373a6d;
   border-width: 1.5px;
   border-radius: 10px;
   margin: 5px;
@@ -58,22 +62,32 @@
 }
 
 .header {
-
 }
-  .start,
-  #timer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.start,
+#timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  h1 {
-    margin: 0 auto;
-    font-size: 81px;
-  }
-  img {
-    width: 100%;
-  }
+h1 {
+  margin: 0 auto;
+  font-size: 81px;
+}
+
+img {
+  width: 100%;
+}
+
+.sidebar {
+  grid-area: 1 / 1 / 4 / 2;
+  background:#beeef7;
+}
+
+.sidebar-2 {
+  grid-area: 1 / 3 / 4 / 4;
+  background: #beeef7;
+}
 /* -------- Media Query ----------------- */
 
 @media screen and (max-width: 768px) {
@@ -84,7 +98,6 @@
     grid-template-rows: repeat(2, 1.5fr) 1fr 4fr 1fr;
     grid-column-gap: 0px;
   }
-
 
   .btn {
     border-color: black;
@@ -145,6 +158,10 @@
 
   #summary {
     grid-area: 5 / 1 / 6 / 2;
+  }
+
+  .sidebar, .sidebar-2 {
+      background: #eee;
   }
   /* ------- Grid Template ------- */
   .div1 {
