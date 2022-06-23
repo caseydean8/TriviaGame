@@ -1,8 +1,10 @@
+// $(document).ready(function () {
+  console.log("reading app.js")
 const game = {
   questions: [
     "Which movie won the special achievement award at the 60th Academy Awards?",
     "Which supernatural thrillers protagonist was named Jack Burton?",
-    "What actor played a cop who infiltrates a psychotic motorcycle gang in Stone Cold?"
+    "What actor played a cop who infiltrates a psychotic motorcycle gang in Stone Cold?",
   ],
   answers: [
     ["Lethal Weapon", "Full Metal Jacket", "Robocop", "Predator"],
@@ -10,19 +12,20 @@ const game = {
       "The Golden Child",
       "Big Trouble in Little China",
       "Howard the Duck",
-      "Innerspace"
+      "Innerspace",
     ],
-    ["Sylvester Stallone", "Dolph Lundgren", "Kurt Russel", "Bryan Bozworth"]
+    ["Sylvester Stallone", "Dolph Lundgren", "Kurt Russel", "Bryan Bozworth"],
   ],
   rightAnswer: ["Robocop", "Big Trouble in Little China", "Bryan Bozworth"],
   gif: [
     "https://media.giphy.com/media/4EFuzRi9HpbW/giphy.gif",
     "https://media.giphy.com/media/69lXr3CqBmNaTypTjC/giphy.gif",
-    "https://66.media.tumblr.com/c7eb4eb6b04d68b1c5c534c41ff3f41c/tumblr_pfxpvvEBW81snghrzo1_400.gif"
-  ]
+    "https://66.media.tumblr.com/c7eb4eb6b04d68b1c5c534c41ff3f41c/tumblr_pfxpvvEBW81snghrzo1_400.gif",
+  ],
 };
 
 const startGame = () => {
+  console.log(`game starting`);
   $(".gif-hold").remove();
   document.getElementById("start-button").style.display = "none";
   document.getElementById("timer").style.display = "flex";
@@ -40,7 +43,11 @@ const startGame = () => {
   run();
 };
 
-$("#start-button").on("click", startGame);
+$("#start-button").on("click touchstart", function (e) {
+  e.preventDefault();
+  console.log("start button clicked");
+  startGame();
+});
 
 let intervalId;
 let page = 0;
@@ -72,7 +79,7 @@ const run = () => {
 let correctAnswers = 0;
 let incorrectAnswers = 0;
 
-$(".button").on("click", ".btn", function() {
+$(".button").on("click", ".btn", function () {
   document.getElementById("question").textContent = "";
 
   const firedButton = this.textContent;
@@ -129,7 +136,7 @@ const gameReset = () => {
 
   $(document)
     .off()
-    .on("click", ".reset-button", function() {
+    .on("click", ".reset-button", function () {
       $(".reset-button").remove();
       clearAnswerTally();
     });
@@ -141,3 +148,4 @@ const clearAnswerTally = () => {
   unanswered = 0;
   startGame();
 };
+// });

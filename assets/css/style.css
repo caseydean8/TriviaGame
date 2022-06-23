@@ -53,7 +53,8 @@ button {
   width: 170px;
   height: 46px;
   font-size: 1.5em;
-  margin-top: 46px;
+  margin-top: 92px;
+  cursor: pointer;
 }
 
 .reset-button {
@@ -70,7 +71,7 @@ button {
 
 .start,
 #timer {
-  display: flex;
+  /* display: grid; */
   align-items: center;
   justify-content: center;
 }
@@ -115,7 +116,7 @@ img {
   .header,
   .start,
   #timer {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
   }
